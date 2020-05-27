@@ -45,13 +45,14 @@
 
 @section ('body')       
 <div class='row justify-content-between'>    
-    <div class='col-6' style='margin-bottom:20px' id='timetable'>
+    <div class='col-6' style='margin-bottom:20px border-right:1px solid silver' id='timetable'>
         {!! $timetable !!}
     </div>        
-    <div class='col-6' id='sidebar'>            
+    <div class='col-6' id='sidebar' style='border-left:1px solid silver'>            
         {!! $events !!}
     </div>    
 </div>
+<br><br>
 <script>   
     function getPapercut()
     {                    

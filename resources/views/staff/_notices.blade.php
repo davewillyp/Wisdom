@@ -1,7 +1,7 @@
 <div>
-    <span class='menu-btn mr-4' onclick='getEvents()'>Events</span>
-    <span class='menu-btn-active mr-4'>Notices</span>
-    <span class='menu-btn mr-4' onclick='getPapercut()'>Papercut</span>
+    <span class='menu-btn ml-4' onclick='getEvents()'>Events</span>
+    <span class='menu-btn-active ml-4'>Notices</span>
+    <span class='menu-btn ml-4' onclick='getPapercut()'>Papercut</span>
 </div>
 <br>
 <div>
