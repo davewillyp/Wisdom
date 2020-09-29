@@ -211,8 +211,7 @@ cursor: pointer;
     border:1px solid #003366;
 }
 .wispanel{
-    background:whitesmoke;
-    border-left:2px solid #003366;    
+    background:whitesmoke;      
 }
 .wispanel:hover{
     background: #E8E8F8;
@@ -234,4 +233,145 @@ cursor: pointer;
     width:125px;
     background: whitesmoke;
     font-weight:bold;
+}
+.wisbackground{
+    background-color: #003366;
+}
+.wistextwhite{
+    color: whitesmoke;
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+#sidebar {
+    width: 275px;
+    position: fixed;
+    top: 0;
+    left: 0;    
+    z-index: 900;
+    background: #003366;
+    color: #fff;    
+    overflow: hidden;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2); 
+    display:none;
+    height: 100vh;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;    
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.wissidebutton{
+    cursor:pointer;     
+}
+.wissidebutton:hover{
+    background: #004080;
+    cursor:pointer;
+}
+.wis-formprogress{
+    padding-left:0px;
+    padding-right:0px;
+    border-bottom:5px solid gray;
+    cursor:pointer;
+}
+.wis-formprogress:hover{
+    font-weight: bold;
+}
+
+.wis-formprogress-active{
+    padding-left:0px;
+    padding-right:0px; 
+    border-bottom:5px solid green;
+    cursor:pointer;    
+}
+.wis-formprogress-active:hover{
+    font-weight: bold;
+}
+
+.wis-thisform{
+    font-weight: bold;
+}
+
+.wis-h1-text{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.wis-h2-text{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.wis-h3-text{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.wis-3-text{
+    font-size: 15px;
+}
+
+.wis-loading-icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+    display:none;
+    color: #003366;
+    width:200px;
+    height:200px;    
+    margin-left: -100px;
+    
+}
+
+i.wis-deletebin {
+    font-size:15px;    
+}
+
+i.wis-deletebin:hover {
+    cursor:pointer;
+    color:red;
+    -webkit-transform: scale(1.3);
+}
+
+i.wis-adduser {
+    font-size:15px;    
+}
+
+i.wis-adduser:hover {
+    cursor:pointer;
+    color:green;
+    -webkit-transform: scale(1.3);
+}
+
+i.wis-additem {
+    font-size:15px;    
+}
+
+i.wis-additem:hover {
+    cursor:pointer;
+    color:green;
+    -webkit-transform: scale(1.3);
+}
+p.wis-large{
+    font-size:18px;
+}
+p.wis-med{
+    font-size:15px;
+}
+p.wis-small{
+    font-size:10px
 }

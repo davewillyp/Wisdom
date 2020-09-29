@@ -24,5 +24,18 @@ class Booking extends Model
 
         return $bookeditems;
     }
+
+    public static function getUserBooking($date,$period){
+        $bookeditems = Booking::join('booking_bookingitem', 'bookings.id', '=', 'booking_bookingitem.booking_id')
+        ->join('bookingitems', 'booking_bookingitem.bookingitem_id', '=', 'bookingitems.id')
+        ->join('bookingcategories','bookingitems.bookingcategory_id','=','bookingcategories.id')
+        ->join('periods','periods.id', '=', 'bookings.period_id')
+        ->select('bookingcategories.icon', 'bookingcategories.colour', 'bookingitems.name')
+        ->where('bookings.date_of',$date)
+        ->where('periods.name', $period)        
+        ->get();
+
+        return $bookeditems;
+    }
     
 }

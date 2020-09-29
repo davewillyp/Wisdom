@@ -21,8 +21,7 @@ class CalendarController extends Controller
 
     if (!$thisTerm){
       $term = Term::where('start', '<=', $thisDate)
-                  ->orderby('start','desc')
-                  ->select('id')
+                  ->orderby('start','desc')                  
                   ->first();    
     } else {
       $term = Term::where('id',$thisTerm)
@@ -87,9 +86,9 @@ class CalendarController extends Controller
 
     
     if (!$thisTerm){
-      return view('staff.calendar', ['calendar' => $calendar, 'days' => $days, 'term' => $term]);
+      return view('staff.calendar.calendar', ['calendar' => $calendar, 'days' => $days, 'term' => $term]);
     } else {
-      return view('staff._cal', ['calendar' => $calendar, 'days' => $days, 'term' => $term]);
+      return view('staff.calendar._cal', ['calendar' => $calendar, 'days' => $days, 'term' => $term]);
     }
     
     
@@ -103,7 +102,7 @@ class CalendarController extends Controller
                   ->first();             
     
     $cats = Eventtype::orderby('id')->get();
-    return view('staff.createcal', ['date' => $date, 'cats' => $cats, 'term' => $term]);
+    return view('staff.calendar.createcal', ['date' => $date, 'cats' => $cats, 'term' => $term]);
 
   }
 

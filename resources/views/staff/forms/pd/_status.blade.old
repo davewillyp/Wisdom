@@ -1,0 +1,9 @@
+<div class='container'>
+    <div class='row text-center mb-3' style='font-size:18px'>
+        <div class='col @if($details) wis-formprogress-active @else wis-formprogress @endif @if($page == 1) wis-thisform @endif' @if(!$confirmation) onclick="openPage('pd',{{$id}},1)" @endif>Course details</div>
+        <div class='col @if($relief) wis-formprogress-active @else wis-formprogress @endif @if($page == 2) wis-thisform @endif' @if(!$confirmation) onclick="openPage('pd',{{$id}},2)" @endif>Relief</div>
+        <div class='col @if($expenses) wis-formprogress-active @else wis-formprogress @endif @if($page == 3) wis-thisform @endif' @if(!$confirmation) onclick="openPage('pd',{{$id}},3)" @endif>Expenses</div>
+        <div class='col @if($logistics) wis-formprogress-active @else wis-formprogress @endif @if($page == 4) wis-thisform @endif' @if(!$confirmation) onclick="openPage('pd',{{$id}},4)" @endif>Logistics</div>
+        <div class='col @if($confirmation) wis-formprogress-active @else wis-formprogress @endif @if($page == 5) wis-thisform @endif' @if(!$confirmation) onclick="openPage('pd',{{$id}},5)" @endif>Confirmation</div>                      
+    </div>
+</div>      

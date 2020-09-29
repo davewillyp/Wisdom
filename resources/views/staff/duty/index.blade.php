@@ -1,37 +1,39 @@
 @extends('staff.layout')
 @section('body')
-<div class='row justify-content-between'>
-    <div class='col-12'>
-        <div class='mb-3' class='container'>
-            <span style='font-size:20px;color:#003366;font-weight:bold'>Duty Roster</span>
-        </div>
-       
-        <div id='duty'>
-            @include('staff.duty._duty')
-        </div>
-    </div>
-</div>
-<br><br>
-<div id="myModal" class="mymodal">
-    <!-- Modal content -->
-    <div class="mymodal-content-small" style='background: whitesmoke;'>
-      <div class="myclose" >&times;</div><br>
-      <div class='container text-center'>
-            <span style='color:#003366;font-size:20px;font-weight:bold'>Search Staff</span>
-            <br>
-            <div class='row justify-content-center'>
-                <div class='col-6 p-2 mb-3'>
-                  <input type='text' class='form-control' id='userSearch' onkeyup='userSearch()'>
-                </div>
-            </div>          
+<div class="container-fluid">
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb" style='background-color:whitesmoke;'>
+      <li class="breadcrumb-item"><a href="/staff">Home</a></li>    
+      <li class="breadcrumb-item"><a href="/staff/duty">Duty</a></li>
+  </nav>
+  <div class='row justify-content-center'>
+      <div class='col-10'>                 
+          <div id='duty'>
+              @include('staff.duty._duty')
+          </div>
       </div>
-      <div class='container' id='userSearchResult'>    
-      </div>
-      
-    </div>     
-      
-    </div>  
-  
+  </div>
+  <br><br>
+  <div id="myModal" class="mymodal">
+      <!-- Modal content -->
+      <div class="mymodal-content-small" style='background: gainsboro;'>
+        <div class="myclose" >&times;</div><br>
+        <div class='container text-center'>
+              <span style='color:#003366;font-size:20px;font-weight:bold'>Search Staff</span>
+              <br>
+              <div class='row justify-content-center'>
+                  <div class='col-6 p-2 mb-3'>
+                    <input type='text' class='form-control' id='userSearch' onkeyup='userSearch()'>
+                  </div>
+              </div>          
+        </div>
+        <div class='container' id='userSearchResult'>    
+        </div>
+        
+      </div>     
+        
+      </div>  
+</div>  
 <script>
   function openDuty(day){
     $.get("/staff/duty/"+day,{},function(data){                        

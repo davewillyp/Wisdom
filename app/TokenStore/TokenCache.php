@@ -14,9 +14,14 @@ class TokenCache {
         if ($group['id'] == env('ALLSTAFF_GROUP_ID')){
             $userType = 'staff';
         }
+        $allGroups[] = $group['id'];
     }
     
-    $seqtaId = DB::connection('seqta')->table($userType)->where('email',$user['userPrincipalName'])->value('id');
+    if($userType == 'student'){
+      $allGroups = false;
+    }
+
+    $seqtaId = DB::connection('seqta')->table($userType)->where('email',$user['mail'])->value('id');
 
     session([
       'accessToken' => $accessToken->getToken(),
@@ -25,9 +30,10 @@ class TokenCache {
       'userName' => $user['givenName'] . " " . $user['surname'],
       'givenName' => $user['givenName'],
       'surname' => $user['surname'],
-      'userEmail' => $user['userPrincipalName'],
+      'userEmail' => $user['mail'],
       'seqtaId' => $seqtaId,
-      'userType' => $userType
+      'userType' => $userType,
+      'groups' => $allGroups
     ]);
   }
 
@@ -41,6 +47,7 @@ class TokenCache {
     session()->forget('userEmail');
     session()->forget('seqtaId');
     session()->forget('userType');
+    session()->forget('groups');
   }
 
   public function getAccessToken() {

@@ -28,4 +28,14 @@ class PapercutController extends Controller
         return view('staff._papercut',['accounts'=> $printaccounts]);
 
     }
+
+    public function getUserBalance(){
+        $username = strstr(session('userEmail'), '@', true);
+        $client = new Client('http://8010vpr001:9191/rpc/api/xmlrpc');
+        $authtoken = env("PAPERCUT_AUTH_TOKEN");
+             
+        $balance = round($client->call('api.getUserProperty', [$authtoken, $username, 'balance']),2);
+
+        return $balance;
+    }
 }

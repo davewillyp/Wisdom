@@ -10,7 +10,7 @@ use App\Termweek;
 class TestController extends Controller
 {
     public function test(Request $request) {
-        return true;
+        dd(session()->all());
             
     }
 
@@ -29,5 +29,9 @@ class TestController extends Controller
 
         return phpinfo();
         
+    }
+
+    public function hello(){
+        return 'hello world!';
     }
 }

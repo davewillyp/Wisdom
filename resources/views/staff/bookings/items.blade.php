@@ -11,7 +11,7 @@
             
             @if (isset($item['items']))
             @foreach($item['items'] as $thisitem)
-            <div id='div{{ $thisitem['id'] }}' class="@if ($thisitem['booked']) itembooked @else wispanel shadow @endif mb-2">
+            <div id='div{{ $thisitem['id'] }}' class="rounded @if ($thisitem['booked']) itembooked @else wisbutton shadow-sm @endif mb-2" >
                 <div class='container'>
                     <div class='row' onclick="@if (!$thisitem['booked']) selectItem({{ $thisitem['id'] }}) @endif">
                         <div class='col my-auto p-2 text-left'>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class='col-auto'>
-            <div class='p-2 wisbutton' style='font-size:16px' onclick='submitBooking()'>Book Now!</div>
+            <div class='p-2 wisbutton rounded' style='font-size:16px' onclick='submitBooking()'>Book Now!</div>
         </div>
     </div>
 </form>

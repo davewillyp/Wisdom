@@ -2,7 +2,7 @@
 @foreach ($users as $user)
     <div class='row justify-content-center'>
         <div class='col-8'>
-            <div class='shadow wispanel mb-2' onclick="updateDutyUser({{ $user->id }},'{{ $user->firstname }} {{ $user->surname }}')">
+            <div class='shadow-sm wisbutton mb-2' onclick="updateDutyUser({{ $user->id }},'{{ $user->firstname }} {{ $user->surname }}')">
                 <div class='container'>
                     <div class='row'>
                         <div class='col-auto p-2'>

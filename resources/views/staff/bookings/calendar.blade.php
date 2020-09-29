@@ -59,6 +59,7 @@
     </tr>
     @endforeach                
 </table>
+<br>
 <script>
     $(document).ready(function() {
         $("td").hover(function() {

@@ -1,6 +1,5 @@
-@extends ('student.layout')
-
-@section ('welcometext')
+@extends('student.layout')
+@section('welcometext')
 <div style='color:whitesmoke;'>
     <div class='container'>
         <div class='row justify-content-center justify-content-md-between'>
@@ -14,9 +13,8 @@
     </div>
 </div>
 @endsection
-
-@section ('links')
-<div class='container'>
+@section('links')
+<div class='container mb-3'>
     <div class="row justify-content-around" style='background-color:#003366;color:white'>
     @foreach ($links as $link)
         <div class="col-sm-2">
@@ -35,47 +33,29 @@
     </div>    
 </div>
 @endsection
-
-@if ($timetable OR $notices)
-    @section ('body')    
-    <div class='row justify-content-between'>
-        @if ($timetable)
-        <div class='col-6' style='margin-bottom:20px'>
-            <div>
-                <span style='font-size:20px;color:#003366'><i class="fal fa-calendar-alt timetable" style='cursor:pointer;margin-right:5px' title="SEQTA Timetable" onclick="window.open('https://teach.sjc.wa.edu.au/timetable/')"></i>Timetable</span>
-                <span class='float-right' style='font-size:20px;color:#003366;'>
-                    <span id="tt-today" class='timetable-btn-active' style='margin-right:8px' onclick="updateTimetable(this,'2020-04-08')">Today</span> 
-                    <span id='tt-tomorrow' class='timetable-btn' onclick="updateTimetable(this,'2020-04-09')">Tomorrow</span>
-                </span>
-            </div>
-            <br>
+@section('body')
+<div class="container">
+    <div class='row justify-content-between'>   
+        <div class='col-6'>        
             <div id='timetable'>
-                @include ('student._timetable')
-            </div>
+                {!! $timetable !!}  
+            </div>      
             <br>
-        </div>
-        @endif
-        @if ($notices)
-        <div class='col-6'>
-            <div>
-                <p style='font-size:20px;color:#003366'>Student Notices</p>
-            </div>            
-            @include ('student._notices')
+        </div>          
+        <div class='col-6' style='border-left:1px solid silver'>
+            <div id="classDetail">
+                @include('student._classdetail')
+            </div>                        
             <br>
-        </div>
-        @endif
+        </div>        
     </div>
-    @endsection
-@else
-    @section ('body')
-    <div class='row justify-content-center'>
-        <div class='col-6 text-center'>
-            <div style="font-size:80px;cursor:pointer">&#128540</div>
-            <h1>No Classes or Notices!</h1>
-            <br>
-            <p style='font-size:20px'>You must be on holidays?</p>
-            <br><br>        
-        </div>
-    </div>
-    @endsection
-@endIf
+</div>    
+<script>
+function getTimetable(date)
+{            
+    $.get("/student/timetable/"+date,{},function(data){                
+        $('#timetable').html(data);                                     
+    },"html");
+}
+</script>
+@endsection   

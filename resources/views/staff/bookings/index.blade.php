@@ -1,28 +1,30 @@
 @extends('staff.layout')
 
 @section('body')
-<div class='row justify-content-between'>
-    <div class='col-12'>
-        <div class='mb-3' class='container'>
-            <span style='font-size:20px;color:#003366;font-weight:bold'>Resource Bookings</span>
-        </div>     
-        <div class='container' style='color:#003366; border:1px solid silver; background:whitesmoke' id='calender'>
-           @include('staff.bookings.calendar')
-           <br>
-        </div>        
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style='background-color:whitesmoke;'>
+        <li class="breadcrumb-item"><a href="/staff">Home</a></li>    
+        <li class="breadcrumb-item"><a href="/staff/bookings">Bookings</a></li>
+    </nav>
+    <div class='row justify-content-center'>
+        <div class='col-10'>            
+            <div class='container-fluid rounded shadow-sm' style='background:whitesmoke' id='calender'>
+            @include('staff.bookings.calendar')
+            <br>
+            </div>        
+        </div>
     </div>
-</div>
-<br>
-<div id="myModal" class="mymodal">
-
-    <!-- Modal content -->
-    <div class="mymodal-content" style='background: whitesmoke;'>
-      <div class="myclose" >&times;</div><br>
-      <div clas='container' id='modalcontent'>This is a test</div>
+    <br>
+    <div id="myModal" class="mymodal">
+        <!-- Modal content -->
+        <div class="mymodal-content rounded" style='background: gainsboro;'>
+        <div class="myclose" >&times;</div><br>
+        <div clas='container' id='modalcontent'>This is a test</div>
+        </div>
+    
     </div>
-  
-  </div>
-  
+</div> 
 <script>
     function updateCalendar(week)
     {
